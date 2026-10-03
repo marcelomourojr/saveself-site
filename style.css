@@ -1,9 +1,9 @@
 /* SaveSelf — site público (política de privacidade e suporte).
    Sem fontes externas, sem scripts, sem cookies: só a fonte do sistema.
-   Cores iguais às do app (SaveSelf/UI/DesignSystem/Theme.swift). */
+   Cores iguais às do app (SaveSelf/UI/DesignSystem/Theme.swift). Sempre tema claro, como o padrão do app. */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --bg: #FFFFFF;
   --text: #111111;
   --secondary: #6B6B6B;
@@ -18,22 +18,6 @@
   --mark-ring: #E0A800;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #000000;
-    --text: #FFFFFF;
-    --secondary: #98989F;
-    --tertiary: #5C5C61;
-    --surface: #111113;
-    --divider: #1C1C1E;
-    --safe: #30D158;
-    --emergency: #FF453A;
-    --link: #FFFFFF;
-    --mark-bg: #FFD60A;
-    --mark-text: #000000;
-    --mark-ring: #FFD60A;
-  }
-}
 
 *,
 *::before,
