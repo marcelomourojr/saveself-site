@@ -64,14 +64,15 @@
 
     <h2 id="s1">1. Resumen en lenguaje sencillo</h2>
     <ul>
-      <li><strong>No tenemos servidor.</strong> Lo que compartes se guarda <strong>en tu propio iCloud</strong>, y no en
-        computadoras de SaveSelf.</li>
+      <li><strong>No tenemos servidor.</strong> Lo que compartes se guarda <strong>en tu propio iCloud</strong> (los registros
+        de la conexión con cada persona se guardan en el iCloud de quien creó la invitación;
+        <a href="#s3">sección 3</a>), y no en computadoras de SaveSelf.</li>
       <li><strong>No vemos tus datos.</strong> No tenemos acceso a tu ubicación ni a tus alertas.</li>
       <li><strong>Tú decides quién ve qué</strong>, persona por persona: la ubicación y las alertas son elecciones
         separadas, y puedes cambiarlas o desactivarlas cuando quieras. Al conectarte con alguien, tu nombre,
-        foto, teléfono y batería ya son visibles para esa persona; la ubicación y el SOS, solo si están
-        activados. En la pantalla de esa elección, el SOS viene activado y la ubicación viene desactivada
-        (<a href="#s6">sección 6</a>).</li>
+        foto, teléfono y el estado de tu iPhone (batería, última señal y permiso de ubicación) ya son
+        visibles para esa persona; la ubicación y el SOS, solo si están activados. En la pantalla de esa
+        elección, el SOS viene activado y la ubicación viene desactivada (<a href="#s6">sección 6</a>).</li>
       <li><strong>Ningún dato de salud.</strong> Esta versión no accede a la app Salud ni a datos del Apple Watch y no
         envía nada de salud ni de actividad física a ningún lugar (<a href="#s5">sección 5</a>).</li>
       <li><strong>No pedimos tu correo electrónico.</strong> Para entrar, basta con "Continuar con Apple", que solo
@@ -84,7 +85,7 @@
     <h2 id="s2">2. Quién es el responsable</h2>
     <ul>
       <li><strong>Responsable del tratamiento:</strong> Marcelo Mouro (persona física), desarrollador de SaveSelf.</li>
-      <li><strong>Encargado de protección de datos (DPO):</strong> Marcelo Mouro, <a href="mailto:app.saveself@gmail.com">app.saveself@gmail.com</a>.</li>
+      <li><strong>Delegado de protección de datos (DPO):</strong> Marcelo Mouro, <a href="mailto:app.saveself@gmail.com">app.saveself@gmail.com</a>.</li>
       <li><strong>Contacto para cualquier asunto de privacidad:</strong> <a href="mailto:app.saveself@gmail.com">app.saveself@gmail.com</a>.</li>
     </ul>
 
@@ -95,12 +96,16 @@
         Cuentan en el almacenamiento de tu iCloud, no en servidores nuestros.</li>
       <li>Para mostrar algo a una persona de tu círculo, la app usa la función para compartir de iCloud
         (<code>CKShare</code>): solo las personas que elegiste reciben acceso de lectura a esa parte de los datos.</li>
+      <li>Los registros de la conexión entre dos personas (nombre, identificador de la cuenta, lo que cada
+        una permitió, las presentaciones y los recibos de "visto" y "Estoy ayudando") se guardan en una zona
+        del iCloud de quien creó la invitación, compartida solo entre ustedes dos, y se borran cuando
+        termina la conexión.</li>
       <li>Los campos más sensibles (ubicación, teléfono y foto) se guardan con el cifrado de campos de
         iCloud: se cifran en tu dispositivo antes de ir a la nube. Quedan con la protección estándar de
         iCloud el nombre, el estado del dispositivo, el estado de seguridad ("Seguro" o "Emergencia"), el
         tipo y la hora de las alertas (con la marca de que la alerta salió con posición, nunca la posición
-        en sí), los recibos de "visto" y de "Estoy ayudando" (nombre y hora), la hora de cada ubicación y,
-        en un SOS, hasta cuándo continúa la ubicación en vivo.</li>
+        en sí), los recibos de "visto" y de "Estoy ayudando" (nombre, identificador de la cuenta y hora),
+        la hora de cada ubicación y, en un SOS, hasta cuándo continúa la ubicación en vivo.</li>
       <li>Apple opera iCloud conforme a la Política de Privacidad de Apple. Los servidores de iCloud pueden
         estar fuera de Brasil o del país donde vives (transferencia internacional, art. 33 de la LGPD;
         fuera de Brasil, ver la <a href="#s12">sección 12</a>).</li>
@@ -111,6 +116,9 @@
       <li>una copia temporal de lo que publicaste y de lo que el círculo compartió contigo, para abrir
         rápido, funcionar sin internet y reenviar lo que quedó pendiente (fuera del respaldo del
         iPhone);</li>
+      <li>la última posición que publicaste (latitud, longitud y hora), en los ajustes internos de la app,
+        para no volver a enviar la misma posición. Entra en el respaldo del iPhone y se borra cuando dejas
+        de compartir la ubicación, al "Cerrar sesión" y al "Eliminar cuenta";</li>
       <li>tu nombre y tu identificador de acceso en el <strong>Llavero</strong> (Keychain) del iPhone;</li>
       <li>los nombres de las personas del círculo, como las ves en la app (con el nombre que tienes de la
         persona en Contactos, cuando lo hay), en un archivo interno fuera del respaldo del iPhone, para
@@ -136,8 +144,10 @@
     del círculo siguen viendo el nombre que ella eligió. En el perfil de cada persona, "Desvincular
     contacto" vuelve al nombre y a la foto que ella eligió.</p>
 
-    <p>Nada de esto sale de tu iPhone, salvo lo que ya se describe para iCloud. "Eliminar cuenta" borra
-    todos estos datos de este iPhone, y "Cerrar sesión" borra parte de ellos (<a href="#s8">sección 8</a>).</p>
+    <p>Nada de esto sale de tu iPhone, salvo lo que ya se describe para iCloud y lo que entra en el
+    respaldo de tu propio iPhone (en una computadora o en el respaldo de iCloud, si lo usas). "Eliminar
+    cuenta" borra todos estos datos de este iPhone, y "Cerrar sesión" borra parte de ellos
+    (<a href="#s8">sección 8</a>).</p>
 
     <p><strong>Un iPhone por Cuenta de Apple.</strong> En esta versión, usa SaveSelf en un solo iPhone por Cuenta de
     Apple. Dos iPhone con la misma cuenta guardan datos en el mismo espacio de tu iCloud: la ubicación,
@@ -179,7 +189,7 @@
           <tr>
             <td data-label="Dato"><strong>Ubicación</strong></td>
             <td data-label="Cuándo">Si la permites y la activas</td>
-            <td data-label="Para qué">Mostrar tu posición más reciente, con precisión, hora y dirección aproximada; durante un SOS, actualización continua durante 60 minutos, que puedes extender ("Continuar en vivo"), con la hora hasta la que continúa ("en vivo hasta…"). Si desactivas la "Ubicación exacta" de SaveSelf en los Ajustes del iPhone, solo se envía la posición aproximada</td>
+            <td data-label="Para qué">Mostrar tu posición más reciente, con precisión, hora y dirección aproximada; durante un SOS, actualización continua durante 60 minutos, que puedes extender ("Continuar en vivo"), con la hora hasta la que continúa ("en vivo hasta…"). Si desactivas la "Ubicación exacta" de SaveSelf en Ajustes (Configuración) del iPhone, solo se envía la posición aproximada, salvo durante un SOS: entonces la app le pide al iOS la ubicación exacta temporal, y tú decides en ese mismo aviso</td>
             <td data-label="Quién puede verlo">Solo quienes autorizaste a ver tu ubicación</td>
           </tr>
           <tr>
@@ -217,6 +227,12 @@
     </div>
 
     <p>SaveSelf <strong>no pide ni recibe tu correo electrónico</strong>.</p>
+
+    <p><strong>SMS de emergencia:</strong> en la pantalla del SOS, "Enviar SMS" abre la app Mensajes con un texto
+    listo para la persona que elijas (de tu círculo o un contacto que elijas) con tu última posición,
+    cuando el iPhone tenga una, y su hora (enlace de Mapas de Apple), aunque no compartas tu ubicación
+    con esa persona en SaveSelf. El mensaje solo sale si tocas enviar en Mensajes, por tu operadora o
+    por iMessage; no pasa por SaveSelf ni por el iCloud de la app.</p>
 
     <p><strong>Notificaciones:</strong> el SOS y el aviso de que una alerta se finalizó llegan por notificación de
     iCloud con un texto genérico; el nombre de la persona se agrega en tu iPhone, a partir de los datos
@@ -268,10 +284,10 @@
         de iOS; puedes mantener "Mientras se usa la app".</li>
       <li>Quienes reciben tus alertas pero no ven tu ubicación reciben el SOS solo con la hora, sin ninguna
         posición.</li>
-      <li><strong>Quién está ayudando:</strong> si tocas "Estoy ayudando" en una alerta de alguien, tu nombre y la hora
-        van a esa persona y, a través de ella, a las otras personas que reciben sus alertas, incluso las que
-        no están conectadas contigo. Del mismo modo, cuando activas el SOS, quienes reciben tus alertas ven
-        quién te está ayudando.</li>
+      <li><strong>Quién está ayudando:</strong> si tocas "Estoy ayudando" en una alerta de alguien, tu nombre, el
+        identificador de tu cuenta (para que la app te reconozca) y la hora van a esa persona y, a través de
+        ella, a las otras personas que reciben sus alertas, incluso las que no están conectadas contigo. Del
+        mismo modo, cuando activas el SOS, quienes reciben tus alertas ven quién te está ayudando.</li>
       <li><strong>Sugerencias de conexión:</strong> quienes están en el círculo de alguien de tu círculo pueden ver tu
         nombre y reciben el identificador de tu cuenta, solo para que la app sugiera que se conecten. La
         conexión solo ocurre si aceptas la solicitud. Si pides conectarte con alguien sugerido, la solicitud
@@ -348,7 +364,7 @@
           <li>El resto de lo que está en tu iCloud (perfil y alertas) sigue ahí, y el círculo sigue viendo tu
             nombre, foto, teléfono y última señal. Para borrarlo, usa Eliminar cuenta.</li>
           <li>Este mismo "Cerrar sesión" ocurre automáticamente cuando la app detecta que desconectaste
-            "Iniciar sesión con Apple" de SaveSelf en los Ajustes del iPhone o que otra cuenta de iCloud
+            "Iniciar sesión con Apple" de SaveSelf en Ajustes (Configuración) del iPhone o que otra cuenta de iCloud
             inició sesión en este iPhone (en ese caso, también la elección general de la ubicación vuelve al
             valor predeterminado, porque es otra persona). La app lo comprueba al abrirse y antes de enviar
             datos, también en segundo plano, y la pantalla de inicio de sesión explica el motivo.</li>
@@ -364,6 +380,11 @@
             "Finalizar" hasta que termine.</li>
           <li>Si tienes SaveSelf en otro iPhone con tu Cuenta de Apple, cierra sesión en él antes
             (<a href="#s3">sección 3</a>): podría volver a crear lo que se eliminó.</li>
+          <li>Los recibos de "visto" y de "Estoy ayudando" que dejaste en alertas de otras personas forman
+            parte del historial de su alerta: tu nombre y la hora siguen en la app de quien activó la alerta
+            hasta 30 días, y el "Estoy ayudando" (con tu nombre y el identificador de tu cuenta) sigue
+            también en el iCloud de esa persona, visible para quienes reciben sus alertas, hasta que elimine
+            su cuenta.</li>
         </ul>
       </li>
       <li><strong>Desconectar "Iniciar sesión con Apple":</strong> SaveSelf no tiene servidor. No envía a ningún lugar el
@@ -371,7 +392,7 @@
         no guarda ningún token; en este iPhone quedan solo el identificador que Apple le da a SaveSelf y tu
         nombre, que Eliminar cuenta borra. Por eso no existe ningún token que la app pueda revocar, y
         Eliminar cuenta no deshace por sí solo el vínculo de tu Cuenta de Apple con SaveSelf. Para
-        deshacerlo, ve a <strong>Ajustes del iPhone → [tu nombre] → Iniciar sesión con Apple → SaveSelf →
+        deshacerlo, ve a <strong>Ajustes (Configuración) del iPhone → [tu nombre] → Iniciar sesión con Apple → SaveSelf →
         Eliminar</strong>. En otras versiones de iOS, la ruta y el nombre del botón pueden ser un poco
         diferentes. La app muestra esta ruta al confirmar Eliminar cuenta y en el resumen de esta
         política.</li>
@@ -398,8 +419,8 @@
       <li><strong>Confirmar y acceder</strong> a los datos: todo lo que compartes aparece en la propia app (tu perfil y
         lo que cada persona ve de ti).</li>
       <li><strong>Corregir:</strong> nombre, teléfono y foto en Ajustes.</li>
-      <li><strong>Revocar el consentimiento:</strong> desactivar cada opción de compartir en la app o los permisos en los
-        Ajustes del iPhone (Privacidad y seguridad → Localización y Contactos; Notificaciones).</li>
+      <li><strong>Revocar el consentimiento:</strong> desactivar cada opción de compartir en la app o los permisos en
+        Ajustes (Configuración) del iPhone (Privacidad y seguridad → Localización y Contactos; Notificaciones).</li>
       <li><strong>Eliminar:</strong> Ajustes → Eliminar cuenta.</li>
       <li><strong>Saber con quién compartimos:</strong> solo las personas de tu círculo que elegiste, quienes están en el
         círculo de ellas (solo tu nombre y el identificador de tu cuenta, para sugerir conexiones;

@@ -62,13 +62,15 @@
 
     <h2 id="s1">1. Resumo em linguagem simples</h2>
     <ul>
-      <li><strong>Não temos servidor.</strong> O que você compartilha fica guardado <strong>no seu próprio iCloud</strong>, e não
-        em computadores do SaveSelf.</li>
+      <li><strong>Não temos servidor.</strong> O que você compartilha fica guardado <strong>no seu próprio iCloud</strong> (os
+        registros da ligação com cada pessoa ficam no iCloud de quem criou o convite; <a href="#s3">seção 3</a>), e não em
+        computadores do SaveSelf.</li>
       <li><strong>Nós não vemos seus dados.</strong> Não temos acesso à sua localização nem aos seus alertas.</li>
       <li><strong>Você decide quem vê o quê</strong>, pessoa por pessoa: localização e alertas são escolhas separadas, e
         você pode mudar ou desligar quando quiser. Ao se conectar com alguém, seu nome, foto, telefone e
-        bateria já aparecem para essa pessoa; localização e SOS, só se estiverem ligados. Na tela dessa
-        escolha, o SOS já vem ligado e a localização vem desligada (<a href="#s6">seção 6</a>).</li>
+        o estado do seu iPhone (bateria, último sinal e permissão de localização) já aparecem para essa
+        pessoa; localização e SOS, só se estiverem ligados. Na tela dessa escolha, o SOS já vem ligado e
+        a localização vem desligada (<a href="#s6">seção 6</a>).</li>
       <li><strong>Nenhum dado de saúde.</strong> Esta versão não acessa o app Saúde nem dados do Apple Watch e não envia
         nada de saúde ou de atividade física para lugar nenhum (<a href="#s5">seção 5</a>).</li>
       <li><strong>Não pedimos seu e-mail.</strong> Para entrar, basta o "Continuar com Apple", que nos dá só o nome
@@ -92,12 +94,15 @@
         contam na cota do seu iCloud, não em servidores nossos.</li>
       <li>Para mostrar algo a uma pessoa do seu círculo, o app usa o compartilhamento do próprio iCloud
         (<code>CKShare</code>): só as pessoas que você escolheu recebem acesso de leitura àquela parte dos dados.</li>
+      <li>Os registros da ligação entre duas pessoas (nome, identificador da conta, o que cada uma liberou,
+        as apresentações e os recibos de "visto" e "Estou ajudando") ficam numa zona do iCloud de quem
+        criou o convite, compartilhada só entre vocês dois, e são apagados quando a ligação termina.</li>
       <li>Os campos mais sensíveis (localização, telefone e foto) são gravados com a criptografia de campos
         do iCloud: são cifrados no seu aparelho antes de irem para a nuvem. Ficam com a proteção padrão
         do iCloud o nome, o estado do aparelho, o estado de segurança ("Seguro" ou "Emergência"), o tipo
         e o horário dos alertas (com a marca de que o alerta saiu com posição, nunca a posição em si), os
-        recibos de "visto" e de "Estou ajudando" (nome e horário), o horário de cada localização e, num
-        SOS, até quando a localização ao vivo continua.</li>
+        recibos de "visto" e de "Estou ajudando" (nome, identificador da conta e horário), o horário de
+        cada localização e, num SOS, até quando a localização ao vivo continua.</li>
       <li>A Apple opera o iCloud conforme a Política de Privacidade da Apple. Os servidores do iCloud podem
         ficar fora do Brasil ou do país onde você mora (transferência internacional, art. 33 da LGPD;
         fora do Brasil, ver a <a href="#s12">seção 12</a>).</li>
@@ -107,6 +112,9 @@
     <ul>
       <li>uma cópia temporária do que você publicou e do que o círculo compartilhou com você, para abrir
         rápido, funcionar sem internet e reenviar o que ficou pendente (fora do backup do iPhone);</li>
+      <li>a última posição que você publicou (latitude, longitude e horário), nos ajustes internos do app,
+        para não reenviar a mesma posição. Ela entra no backup do iPhone e é apagada quando você para de
+        compartilhar a localização, em "Sair" e em "Excluir conta";</li>
       <li>seu nome e sua identificação de acesso no <strong>Keychain</strong> do iPhone;</li>
       <li>os nomes das pessoas do círculo, como você os vê no app (com o nome que você tem da pessoa nos
         Contatos, quando há), num arquivo interno fora do backup do iPhone, para escrever as
@@ -133,7 +141,8 @@
     círculo continuam vendo o nome que ela escolheu. No perfil de cada pessoa, "Desvincular contato"
     volta ao nome e à foto que ela escolheu.</p>
 
-    <p>Nada disso sai do seu iPhone, com exceção do que já está descrito para o iCloud. "Excluir conta"
+    <p>Nada disso sai do seu iPhone, com exceção do que já está descrito para o iCloud e do que entra no
+    backup do próprio iPhone (no computador ou no Backup do iCloud, se você o usar). "Excluir conta"
     apaga todos esses dados deste iPhone, e "Sair" apaga parte deles (<a href="#s8">seção 8</a>).</p>
 
     <p><strong>Um iPhone por Conta Apple.</strong> Nesta versão, use o SaveSelf em um único iPhone por Conta Apple.
@@ -176,7 +185,7 @@
           <tr>
             <td data-label="Dado"><strong>Localização</strong></td>
             <td data-label="Quando">Se você permitir e ativar</td>
-            <td data-label="Para quê">Mostrar sua posição mais recente, com precisão, horário e endereço aproximado; durante um SOS, atualização contínua por 60 minutos, que você pode estender ("Continuar ao vivo"), com o horário até quando ela continua ("ao vivo até…"). Se você desligar a "Localização Exata" do SaveSelf nos Ajustes do iPhone, vai só a posição aproximada</td>
+            <td data-label="Para quê">Mostrar sua posição mais recente, com precisão, horário e endereço aproximado; durante um SOS, atualização contínua por 60 minutos, que você pode estender ("Continuar ao vivo"), com o horário até quando ela continua ("ao vivo até…"). Se você desligar a "Localização Exata" do SaveSelf nos Ajustes do iPhone, vai só a posição aproximada, salvo durante um SOS: aí o app pede ao iOS a localização exata temporária, e você decide no próprio pedido</td>
             <td data-label="Quem pode ver">Só quem você autorizou a ver sua localização</td>
           </tr>
           <tr>
@@ -214,6 +223,12 @@
     </div>
 
     <p>O SaveSelf <strong>não pede nem recebe o seu e-mail</strong>.</p>
+
+    <p><strong>SMS de emergência:</strong> na tela do SOS, "Enviar SMS" abre o app Mensagens com um texto pronto para a
+    pessoa escolhida (do círculo ou um contato que você escolher), com a sua última posição, quando o
+    iPhone tiver uma, e o horário dela (link do Mapas da Apple), mesmo que você não compartilhe a
+    localização com essa pessoa no SaveSelf. A mensagem só sai se você tocar em enviar no Mensagens,
+    pela sua operadora ou pelo iMessage; ela não passa pelo SaveSelf nem pelo iCloud do app.</p>
 
     <p><strong>Notificações:</strong> o SOS e o aviso de que um alerta foi encerrado chegam por notificação do iCloud
     com um texto genérico; o nome da pessoa é colocado no seu iPhone, a partir dos dados que ela já
@@ -265,10 +280,11 @@
         iOS; você pode manter "Durante o uso".</li>
       <li>Quem recebe seus alertas mas não vê sua localização recebe o SOS só com o horário, sem nenhuma
         posição.</li>
-      <li><strong>Quem está ajudando:</strong> se você tocar em "Estou ajudando" num alerta de alguém, seu nome e o
-        horário vão para essa pessoa e, por meio dela, para as outras pessoas que recebem os alertas
-        dela, mesmo as que não estão conectadas a você. Da mesma forma, quando você aciona o SOS, quem
-        recebe os seus alertas vê quem está ajudando você.</li>
+      <li><strong>Quem está ajudando:</strong> se você tocar em "Estou ajudando" num alerta de alguém, seu nome, o
+        identificador da sua conta (para o app reconhecer você) e o horário vão para essa pessoa e, por
+        meio dela, para as outras pessoas que recebem os alertas dela, mesmo as que não estão conectadas
+        a você. Da mesma forma, quando você aciona o SOS, quem recebe os seus alertas vê quem está
+        ajudando você.</li>
       <li><strong>Sugestões de ligação:</strong> quem está no círculo de alguém do seu círculo pode ver seu nome e
         recebe o identificador da sua conta, só para o app sugerir que vocês se liguem. A ligação só
         acontece se você aceitar o pedido. Se você pedir para se conectar com alguém sugerido, o pedido
@@ -358,6 +374,11 @@
             "Concluir" até terminar.</li>
           <li>Com o mesmo SaveSelf em outro iPhone com a sua Conta Apple, saia dele antes (<a href="#s3">seção 3</a>): ele
             poderia recriar o que foi excluído.</li>
+          <li>Os recibos de "visto" e de "Estou ajudando" que você deixou em alertas de outras pessoas fazem
+            parte do histórico do alerta delas: seu nome e o horário continuam no app de quem acionou o
+            alerta por até 30 dias, e o "Estou ajudando" (com seu nome e o identificador da sua conta)
+            continua também no iCloud dessa pessoa, visível para quem recebe os alertas dela, até ela
+            excluir a conta.</li>
         </ul>
       </li>
       <li><strong>Desconectar o "Continuar com Apple":</strong> o SaveSelf não tem servidor. Ele não envia a lugar

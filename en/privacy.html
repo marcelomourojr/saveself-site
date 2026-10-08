@@ -64,14 +64,15 @@
 
     <h2 id="s1">1. Summary in plain language</h2>
     <ul>
-      <li><strong>We don't have a server.</strong> What you share is stored <strong>in your own iCloud</strong>, not on
-        SaveSelf computers.</li>
+      <li><strong>We don't have a server.</strong> What you share is stored <strong>in your own iCloud</strong> (the records
+        of your link with each person are kept in the iCloud of whoever created the invitation;
+        <a href="#s3">section 3</a>), not on SaveSelf computers.</li>
       <li><strong>We don't see your data.</strong> We have no access to your location or your alerts.</li>
       <li><strong>You decide who sees what</strong>, person by person: location and alerts are separate choices, and
         you can change them or turn them off whenever you want. When you connect with someone, your name,
-        photo, phone number and battery level are already visible to that person; location and SOS, only
-        if they are turned on. On the screen where you make this choice, SOS starts on and location starts
-        off (<a href="#s6">section 6</a>).</li>
+        photo, phone number and your iPhone's status (battery, last seen and location permission) are
+        already visible to that person; location and SOS, only if they are turned on. On the screen where
+        you make this choice, SOS starts on and location starts off (<a href="#s6">section 6</a>).</li>
       <li><strong>No health data.</strong> This version does not access the Health app or Apple Watch data and does not
         send any health or fitness data anywhere (<a href="#s5">section 5</a>).</li>
       <li><strong>We don't ask for your email.</strong> To sign in, all you need is "Continue with Apple", which gives us
@@ -94,12 +95,17 @@
         toward your iCloud storage, not toward servers of ours.</li>
       <li>To show something to a person in your circle, the app uses iCloud's own sharing
         (<code>CKShare</code>): only the people you chose get read access to that part of the data.</li>
+      <li>The records of the link between two people (name, account identifier, what each one allowed,
+        introductions and the "seen" and "I'm Helping" receipts) are kept in a zone in the iCloud of
+        whoever created the invitation, shared only between the two of you, and are deleted when the link
+        ends.</li>
       <li>The most sensitive fields (location, phone number and photo) are saved with iCloud's field
         encryption: they are encrypted on your device before they go to the cloud. The following are kept
         with iCloud's standard protection: your name, the device status, the safety status ("Safe" or
         "Emergency"), the type and time of alerts (with a flag saying the alert was sent with a position,
-        never the position itself), the "seen" and "I'm Helping" receipts (name and time), the time of
-        each location and, during an SOS, until when live location continues.</li>
+        never the position itself), the "seen" and "I'm Helping" receipts (name, account identifier and
+        time), the time of each location and, during an SOS, until when live
+        location continues.</li>
       <li>Apple operates iCloud under Apple's Privacy Policy. iCloud servers may be located outside Brazil
         or the country where you live (international transfer, Art. 33 of the LGPD; outside Brazil, see
         <a href="#s12">section 12</a>).</li>
@@ -109,6 +115,9 @@
     <ul>
       <li>a temporary copy of what you published and of what your circle shared with you, to open quickly,
         work offline and resend anything still pending (excluded from iPhone backup);</li>
+      <li>the last position you published (latitude, longitude and time), in the app's internal settings,
+        so the same position isn't sent again. It is included in iPhone backups and is erased when you
+        stop sharing your location, on "Sign Out" and on "Delete Account";</li>
       <li>your name and your sign-in identifier in the iPhone <strong>Keychain</strong>;</li>
       <li>the names of the people in your circle, as you see them in the app (with the name you have for
         that person in Contacts, if any), in an internal file excluded from iPhone backup, to write alert
@@ -134,7 +143,8 @@
     the circle keep seeing the name they chose. On each person's profile, "Unlink Contact" goes back to
     the name and photo they chose.</p>
 
-    <p>None of this leaves your iPhone, except for what is already described for iCloud. "Delete Account"
+    <p>None of this leaves your iPhone, except for what is already described for iCloud and what is
+    included in your own iPhone backup (on a computer or in iCloud Backup, if you use it). "Delete Account"
     erases all of this data from this iPhone, and "Sign Out" erases part of it (<a href="#s8">section 8</a>).</p>
 
     <p><strong>One iPhone per Apple Account.</strong> In this version, use SaveSelf on only one iPhone per Apple
@@ -177,7 +187,7 @@
           <tr>
             <td data-label="Data"><strong>Location</strong></td>
             <td data-label="When">If you allow it and turn it on</td>
-            <td data-label="What for">Show your most recent position, with accuracy, time and approximate address; during an SOS, continuous updates for 60 minutes, which you can extend ("Keep Sharing Live"), with the time until which it continues ("live until…"). If you turn off "Precise Location" for SaveSelf in iPhone Settings, only your approximate position is sent</td>
+            <td data-label="What for">Show your most recent position, with accuracy, time and approximate address; during an SOS, continuous updates for 60 minutes, which you can extend ("Keep Sharing Live"), with the time until which it continues ("live until…"). If you turn off "Precise Location" for SaveSelf in iPhone Settings, only your approximate position is sent, except during an SOS: then the app asks iOS for temporary precise location, and you decide in that prompt</td>
             <td data-label="Who can see it">Only the people you allowed to see your location</td>
           </tr>
           <tr>
@@ -215,6 +225,12 @@
     </div>
 
     <p>SaveSelf <strong>does not ask for or receive your email</strong>.</p>
+
+    <p><strong>Emergency text:</strong> on the SOS screen, "Send Text" opens Messages with a prewritten text
+    to the person you pick (in your circle or a contact you choose) that includes your last position,
+    when your iPhone has one, and its time (an Apple Maps link), even if you don't share your location
+    with that person in SaveSelf. It is only sent if you tap send in Messages, through your carrier or
+    iMessage; it doesn't go through SaveSelf or the app's iCloud data.</p>
 
     <p><strong>Notifications:</strong> SOS alerts and the notice that an alert was ended arrive as an iCloud
     notification with generic text; the person's name is added on your iPhone, from the data they
@@ -268,10 +284,10 @@
         request; you can keep "While Using the App".</li>
       <li>People who receive your alerts but don't see your location get the SOS with the time only,
         without any position.</li>
-      <li><strong>Who is helping:</strong> if you tap "I'm Helping" on someone's alert, your name and the time go to
-        that person and, through them, to the other people who receive their alerts, even those who aren't
-        connected to you. Likewise, when you trigger an SOS, the people who receive your alerts see who is
-        helping you.</li>
+      <li><strong>Who is helping:</strong> if you tap "I'm Helping" on someone's alert, your name, your account
+        identifier (so the app can recognize you) and the time go to that person and, through them, to
+        the other people who receive their alerts, even those who aren't connected to you. Likewise, when
+        you trigger an SOS, the people who receive your alerts see who is helping you.</li>
       <li><strong>Connection suggestions:</strong> people in the circle of someone in your circle may see your name and
         receive your account identifier, only so the app can suggest that you connect. The connection
         only happens if you accept the request. If you ask to connect with someone suggested, the request
@@ -363,6 +379,10 @@
             Progress" with "Finish" until it's done.</li>
           <li>If you have SaveSelf on another iPhone with your Apple Account, sign out of it first
             (<a href="#s3">section 3</a>): it could recreate what was deleted.</li>
+          <li>The "seen" and "I'm Helping" receipts you left on other people's alerts are part of their
+            alert history: your name and the time stay in the app of the person who triggered the alert for
+            up to 30 days, and "I'm Helping" (with your name and account identifier) also stays in that
+            person's iCloud, visible to whoever receives their alerts, until they delete their account.</li>
         </ul>
       </li>
       <li><strong>Disconnecting "Sign in with Apple":</strong> SaveSelf has no server. It doesn't send the code or the
